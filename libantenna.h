@@ -26,9 +26,11 @@ extern "C"
 
 #ifdef _MSC_VER
 /* Microsoft Visual C/C++ compiler in use */
-#ifdef LIBANTENNA_MSBUILD
+#ifdef LIBANTENNA_MSBUILD_SHARED
 /* Building the library - need to export DLL symbols */
 #define LA_API __declspec(dllexport)
+#elif LIBANTENNA_MSBUILD_STATIC
+#define LA_API
 #else
 /* Using the library - need to import DLL symbols */
 #define LA_API __declspec(dllimport)
