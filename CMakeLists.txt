@@ -14,7 +14,7 @@ file(GLOB SOURCES "src/*.c")
 #Generate the shared library from the sources
 
 if(BUILD_SHARED_LIBS)
-  add_library(libantenna SHARED ${SOURCES})
+  add_library(antenna SHARED ${SOURCES})
   if (WIN32)
     add_definitions(-DLIBANTENNA_MSBUILD_SHARED)
     include (GenerateExportHeader)
@@ -22,11 +22,18 @@ if(BUILD_SHARED_LIBS)
   endif (WIN32)
 else()
   add_definitions(-DLIBANTENNA_MSBUILD_STATIC)
-  add_library(libantenna STATIC ${SOURCES})
+  add_library(antenna STATIC ${SOURCES})
 endif(BUILD_SHARED_LIBS)
 
-target_link_libraries(libantenna)
+target_link_libraries(antenna)
 #Set the location for library installation -- i.e., /usr/lib in this case
 # not really necessary in this example. Use "sudo make install" to apply
-install(TARGETS libantenna)
+install(TARGETS antenna
+  LIBRARY DESTINATION "lib"
+  ARCHIVE DESTINATION "lib"
+  RUNTIME DESTINATION "bin"
+  INCLUDES DESTINATION "include"
+)
+
+install(FILES "libantenna.h" DESTINATION "include")
 
