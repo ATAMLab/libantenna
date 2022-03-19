@@ -1,4 +1,3 @@
-
 #include "libantenna.h"
 
 void la_freq2wavelen(double *freq, size_t size, double *wavelen)
