@@ -4,15 +4,10 @@ C language toolkit library for fundamental computations related to electormagnet
 ## Index
 The following functions are implemented in this library:
 
--   [freq2wavelen] - Frequency to wavelength convert for free space
--   [wavelen2freq] - Wavelength to frequency convert for free space
--   [ffdist] - Far-field (Fraunhofer) distance of an antenna
--   [s11toswr] - Reflection coefficent (S11) to standing wave ratio (SWR) convert
--   [swrtos11] - Standing wave ratio (SWR) to reflection coefficent (S11) convert
+-   [freq2wavelen]  - Frequency to wavelength convert for free space
+-   [frequency_hr]  - Frequency to human readable string format like 1.3 kHz, 3.1GHz
+-   [wavelength_hr] - Wavelength to human readable string format like 2 mm, 9.5 cm
 
-<!-- [bessel]:   https://ntessore.github.io/algo/bessel.3.html
-[cholesky]: https://ntessore.github.io/algo/cholesky.3.html
-[extrema]:  https://ntessore.github.io/algo/extrema.3.html
-[extremum]: https://ntessore.github.io/algo/extremum.3.html
-[linspace]: https://ntessore.github.io/algo/linspace.3.html
-[logspace]: https://ntessore.github.io/algo/logspace.3.html -->
+[freq2wavelen]: https://github.com/yigithsyn/libantenna/blob/master/src/freq2wavelen.c
+[frequency_hr]: https://github.com/yigithsyn/libantenna/blob/master/src/utility.c
+[wavelength_hr]: https://github.com/yigithsyn/libantenna/blob/master/src/utility.c
