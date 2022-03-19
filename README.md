@@ -1,5 +1,5 @@
 # libantenna: Antennas and Propagation Library
-C language toolkit for fundamental computations related to electormagnetics, antennas and radio (RF) propagation.
+C language toolkit library for fundamental computations related to electormagnetics, antennas and radio (RF) propagation.
 
 ## Index
 The following functions are implemented in this library:
