@@ -1,0 +1,9 @@
+{
+  "cmake.debugConfig": {
+    "args": ["-h"],
+    "cwd": "${workspaceFolder}/test"
+  },
+  "files.associations": {
+    "libantenna.h": "c"
+  }
+}

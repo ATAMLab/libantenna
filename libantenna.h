@@ -8,22 +8,6 @@ extern "C"
 
 #include <stddef.h>
 
-/*
- * Package version macros (can be used for conditional compilation).
- */
-
-/** The libantenna package 'major' version number. */
-#define LA_PACKAGE_VERSION_MAJOR 0
-
-/** The libantenna package 'minor' version number. */
-#define LA_PACKAGE_VERSION_MINOR 0
-
-/** The libantenna package 'micro' version number. */
-#define LA_PACKAGE_VERSION_MICRO 1
-
-/** The libantenna package version ("major.minor.micro") as string. */
-#define LA_PACKAGE_VERSION_STRING "0.0.1"
-
 #ifdef _MSC_VER
 /* Microsoft Visual C/C++ compiler in use */
 #ifdef LIBANTENNA_MSBUILD_SHARED
@@ -45,7 +29,7 @@ extern "C"
 
 #define LA_CONSTANT_C0 299792458
 
-  LA_API void freq2wavelen(double *freq, size_t size, double *wavelen);
+  LA_API void la_freq2wavelen(double *freq, size_t size, double *wavelen);
 
 #ifdef __cplusplus
 }
