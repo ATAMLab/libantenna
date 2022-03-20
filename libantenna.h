@@ -30,10 +30,12 @@ extern "C"
 #define LA_CONSTANT_C0 299792458
 
   LA_API void la_freq2wavelen(double *freq, size_t size, double *wavelen);
+  LA_API void la_wavelen2freq(double *wavelen, size_t size, double *freq);
 
-  LA_API char* la_wavelength_hr(double wavelength, char *buff, size_t buff_len);
-  
-  LA_API char* la_frequency_hr(double frequency, char *buff, size_t buff_len);
+  LA_API char *la_wavelength_hr(double wavelength, char *buff, size_t buff_len);
+  LA_API char *la_frequency_hr(double frequency, char *buff, size_t buff_len);
+
+
 #ifdef __cplusplus
 }
 #endif
