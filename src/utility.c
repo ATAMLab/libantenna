@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-char* la_wavelength_hr(double wavelength, char *buff, size_t buff_len)
+char* ap_wavelength_hr(double wavelength, char *buff, size_t buff_len)
 {
   if (wavelength >= 1E3)
     snprintf(buff, buff_len - 1, "%.1f km", wavelength / 1E3);
@@ -16,7 +16,7 @@ char* la_wavelength_hr(double wavelength, char *buff, size_t buff_len)
   return buff;
 }
 
-char* la_frequency_hr(double frequency, char *buff, size_t buff_len)
+char* ap_frequency_hr(double frequency, char *buff, size_t buff_len)
 {
   if (frequency >= 1E12)
     snprintf(buff, buff_len - 1, "%.1f THz", frequency/1E12);

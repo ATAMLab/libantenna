@@ -17,8 +17,8 @@
  *
  * @since 0.1.1
  */
-double la_ffdist(double freq, double D)
+double ap_ffdist(double freq, double D)
 {
-  for (size_t i = 0; i < size; i++)
-    wavelen[i] = LA_CONSTANT_C0 / freq[i];
+  // for (size_t i = 0; i < size; i++)
+  //   wavelen[i] = AP_CONSTANT_C0 / freq[i];
 }
