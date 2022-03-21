@@ -29,6 +29,9 @@ extern "C"
 
 #define AP_CONSTANT_C0 299792458
 
+#define AP_MIN(a,b) (((a)<(b))?(a):(b))
+#define AP_MAX(a,b) (((a)>(b))?(a):(b))
+
   AP_API double ap_freq2wavelen(double freq);
   AP_API double ap_wavelen2freq(double wavelen);
 
@@ -37,6 +40,8 @@ extern "C"
 
   AP_API double ap_s11dbtoswr(double s11);
   AP_API double ap_swrtos11db(double swr);
+
+  AP_API double ap_ffdist(double freq, double D);
 
 #ifdef __cplusplus
 }

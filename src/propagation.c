@@ -13,12 +13,10 @@
  * @param[in]  freq    Frequency in Hertz [Hz].
  * @param[in]  D       Aperture cross-sectional size in meters [m].
  * 
- * @return ffdist  Far-field (Fraunhofer) distance of an aperture [m].
- *
- * @since 0.1.1
+ * @return Far-field (Fraunhofer) distance of an aperture [m].
+ * 
  */
 double ap_ffdist(double freq, double D)
 {
-  // for (size_t i = 0; i < size; i++)
-  //   wavelen[i] = AP_CONSTANT_C0 / freq[i];
+  return AP_MAX(2 * D * D / ap_freq2wavelen(freq), AP_MAX(1.6 * ap_freq2wavelen(freq), 5 * D));
 }
