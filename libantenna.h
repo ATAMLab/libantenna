@@ -35,6 +35,10 @@ extern "C"
   LA_API char *la_wavelength_hr(double wavelength, char *buff, size_t buff_len);
   LA_API char *la_frequency_hr(double frequency, char *buff, size_t buff_len);
 
+  LA_API void la_s11dbtoswr(double *s11, size_t size, double *swr);
+  LA_API void la_swrtos11db(double *swr, size_t size, double *s11);
+
+
 
 #ifdef __cplusplus
 }
