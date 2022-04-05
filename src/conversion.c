@@ -2,11 +2,29 @@
 
 #include <math.h>
 
+/**
+ * Convert freqeuncy to wavelength. 
+ * \n
+ * \f$f = c0/\lambda \f$ where \f$c0\f$ is speed of light in vacuum
+ *
+ * @param freq    Frequency in Hertz [Hz].
+ * 
+ * @return Wavelength in meters [m].
+ * 
+ */
 double ap_freq2wavelen(double freq)
 {
   return AP_CONSTANT_C0 / freq;
 }
 
+/**
+ * @brief Convert wavelength to frequency.
+ * 
+ * 
+ * 
+ * @param wavelen 
+ * @return double 
+ */
 double ap_wavelen2freq(double wavelen)
 {
   ap_freq2wavelen(wavelen);
