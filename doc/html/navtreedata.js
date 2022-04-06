@@ -25,18 +25,23 @@
 var NAVTREE =
 [
   [ "libantenna", "index.html", [
-    [ "libantenna: Antennas and Propagation Library", "da/dd5/md__c___users_hsyn__desktop__git_hub_libantenna__r_e_a_d_m_e.html", [
-      [ "Index", "da/dd5/md__c___users_hsyn__desktop__git_hub_libantenna__r_e_a_d_m_e.html#autotoc_md1", null ]
+    [ "libantenna: Antennas and Propagation Library", "d3/dcc/md__r_e_a_d_m_e.html", [
+      [ "Index", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md1", null ]
     ] ],
     [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
+      [ "File List", "files.html", "files_dup" ],
+      [ "Globals", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"d0/d41/utility_8c_source.html"
+"d0/d41/utility_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

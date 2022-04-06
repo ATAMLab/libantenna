@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>libantenna: C:/Users/hsyn/Desktop/GitHub/libantenna/src/conversion.c File Reference</title>
+<title>libantenna: src/conversion.c File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -83,13 +83,16 @@ $(document).ready(function(){initNavTree('d8/d2f/conversion_8c.html','../../'); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a6c6216ca2d1c5ac1a866b35dc215fca1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d2f/conversion_8c.html#a6c6216ca2d1c5ac1a866b35dc215fca1">ap_freq2wavelen</a> (double freq)</td></tr>
+<tr class="memdesc:a6c6216ca2d1c5ac1a866b35dc215fca1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert frequency to wavelength.  <a href="../../d8/d2f/conversion_8c.html#a6c6216ca2d1c5ac1a866b35dc215fca1">More...</a><br /></td></tr>
 <tr class="separator:a6c6216ca2d1c5ac1a866b35dc215fca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17100ade5b697645bf85b6187a71b04b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d2f/conversion_8c.html#a17100ade5b697645bf85b6187a71b04b">ap_wavelen2freq</a> (double wavelen)</td></tr>
 <tr class="memdesc:a17100ade5b697645bf85b6187a71b04b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert wavelength to frequency.  <a href="../../d8/d2f/conversion_8c.html#a17100ade5b697645bf85b6187a71b04b">More...</a><br /></td></tr>
 <tr class="separator:a17100ade5b697645bf85b6187a71b04b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee285d6548aad8177048846f569f6d98"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d2f/conversion_8c.html#aee285d6548aad8177048846f569f6d98">ap_s11dbtoswr</a> (double s11)</td></tr>
+<tr class="memdesc:aee285d6548aad8177048846f569f6d98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cpnvert reflection coefficient ( \(S_{11}\)) to standing wave ratio (SWR)  <a href="../../d8/d2f/conversion_8c.html#aee285d6548aad8177048846f569f6d98">More...</a><br /></td></tr>
 <tr class="separator:aee285d6548aad8177048846f569f6d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30e2293eeda6384430273d42c43ed53d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d2f/conversion_8c.html#a30e2293eeda6384430273d42c43ed53d">ap_swrtos11db</a> (double swr)</td></tr>
+<tr class="memdesc:a30e2293eeda6384430273d42c43ed53d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert standing wave ratio (SWR) to reflection coefficient ( \(S_{11}\))  <a href="../../d8/d2f/conversion_8c.html#a30e2293eeda6384430273d42c43ed53d">More...</a><br /></td></tr>
 <tr class="separator:a30e2293eeda6384430273d42c43ed53d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -108,17 +111,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Convert freqeuncy to wavelength. <br  />
- \(f = c0/\lambda \) where \(c0\) is speed of light in vacuum</p>
+
+<p>Convert frequency to wavelength. </p>
+<p >\(f = c0/\lambda \) where \(c0\) is speed of light in vacuum</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">freq</td><td>Frequency in Hertz [Hz].</td></tr>
+    <tr><td class="paramname">freq</td><td>frequency in Hertz [Hz] </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Wavelength in meters [m]. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>wavelength in meters [m] </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d2f/conversion_8c_source.html#l00015">15</a> of file <a class="el" href="../../d8/d2f/conversion_8c_source.html">conversion.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d2f/conversion_8c_source.html#l00014">14</a> of file <a class="el" href="../../d8/d2f/conversion_8c_source.html">conversion.c</a>.</p>
 
 </div>
 </div>
@@ -138,7 +142,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d2f/conversion_8c_source.html#l00033">33</a> of file <a class="el" href="../../d8/d2f/conversion_8c_source.html">conversion.c</a>.</p>
+<p>Cpnvert reflection coefficient ( \(S_{11}\)) to standing wave ratio (SWR) </p>
+<p >\(SWR = \dfrac{1+S_{11}}{1-S_{11}}\)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">S11</td><td>reflection coefficient in decibel [dB] </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>SWR </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d2f/conversion_8c_source.html#l00040">40</a> of file <a class="el" href="../../d8/d2f/conversion_8c_source.html">conversion.c</a>.</p>
 
 </div>
 </div>
@@ -158,7 +172,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d2f/conversion_8c_source.html#l00038">38</a> of file <a class="el" href="../../d8/d2f/conversion_8c_source.html">conversion.c</a>.</p>
+<p>Convert standing wave ratio (SWR) to reflection coefficient ( \(S_{11}\)) </p>
+<p >\(S_{11} = \dfrac{SWR-1}{SWR+1}\)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">SWR</td><td>standing wave ratio </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>S11 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d8/d2f/conversion_8c_source.html#l00053">53</a> of file <a class="el" href="../../d8/d2f/conversion_8c_source.html">conversion.c</a>.</p>
 
 </div>
 </div>
@@ -179,15 +203,16 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Convert wavelength to frequency. </p>
+<p >\(\lambda = c0/f \) where \(c0\) is speed of light in vacuum</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">wavelen</td><td></td></tr>
+    <tr><td class="paramname">wavelen</td><td>wavelength in meters [m] </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>double </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>frequency in Hertz [Hz] </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d8/d2f/conversion_8c_source.html#l00028">28</a> of file <a class="el" href="../../d8/d2f/conversion_8c_source.html">conversion.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d8/d2f/conversion_8c_source.html#l00027">27</a> of file <a class="el" href="../../d8/d2f/conversion_8c_source.html">conversion.c</a>.</p>
 
 </div>
 </div>
