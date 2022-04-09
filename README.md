@@ -10,6 +10,7 @@ The following functions are implemented in this library:
 -   [wavelength_hr] - Wavelength to human readable string format like 2 mm, 9.5 cm
 -   [s11dbtoswr]    - Microwave/RF S11 [dB] parameters to standing wave ratio (SWR) convert
 -   [swrtos11db]    - Standing wave ratio (SWR) convert to microwave/RF S11 [dB] convert 
+-   [ffdist]        - Far-field distance of an antenna/aperture 
 
 [freq2wavelen]:  https://github.com/yigithsyn/libantenna/blob/master/src/conversion.c
 [wavelen2freq]:  https://github.com/yigithsyn/libantenna/blob/master/src/conversion.c
@@ -17,3 +18,4 @@ The following functions are implemented in this library:
 [wavelength_hr]: https://github.com/yigithsyn/libantenna/blob/master/src/utility.c
 [s11dbtoswr]:    https://github.com/yigithsyn/libantenna/blob/master/src/conversion.c
 [swrtos11db]:    https://github.com/yigithsyn/libantenna/blob/master/src/conversion.c
+[ffdist]:        https://github.com/yigithsyn/libantenna/blob/master/src/propagation.c
