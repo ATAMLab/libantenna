@@ -27,7 +27,7 @@ double ap_freq2wavelen(double freq)
  */
 double ap_wavelen2freq(double wavelen)
 {
-  ap_freq2wavelen(wavelen);
+  return ap_freq2wavelen(wavelen);
 }
 
 double ap_s11dbtoswr(double s11)
