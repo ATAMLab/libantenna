@@ -84,8 +84,52 @@ $(document).ready(function(){initNavTree('d1/dd1/propagation_8c.html','../../');
 Functions</h2></td></tr>
 <tr class="memitem:af82248ce3757422f342a5fee2fc6a93a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd1/propagation_8c.html#af82248ce3757422f342a5fee2fc6a93a">ap_ffdist</a> (double freq, double D)</td></tr>
 <tr class="separator:af82248ce3757422f342a5fee2fc6a93a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89947476cbfc0d5d442aec7514ad0875"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="../../d6/dad/structap__thetaphi.html">ap_thetaphi</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/dd1/propagation_8c.html#a89947476cbfc0d5d442aec7514ad0875">ap_azel2phitheta</a> (double az, double el)</td></tr>
+<tr class="separator:a89947476cbfc0d5d442aec7514ad0875"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="a89947476cbfc0d5d442aec7514ad0875" name="a89947476cbfc0d5d442aec7514ad0875"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89947476cbfc0d5d442aec7514ad0875">&#9670;&nbsp;</a></span>ap_azel2phitheta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct <a class="el" href="../../d6/dad/structap__thetaphi.html">ap_thetaphi</a> ap_azel2phitheta </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>az</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>el</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >Convert angles from azimuth-elevation form to phi-theta form</p>
+<p >\(\theta = \arccos(w) = \arccos\left(\cos(Az)\cos(El)\right)\)</p>
+<p >\(\phi = \arccos(v/u) = \arctan\left(\dfrac{\tan(El)}{\sin(Az)}\right)\)</p>
+<p >Theory and Practive of Modern Antenna Measurements</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">az</td><td>azimuth angle in degrees [ \(\circ\)] </td></tr>
+    <tr><td class="paramname">el</td><td>elevation angle in degrees [ \(\circ\)]</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>phi and theta angle pair in degrees [ \(\circ\)] </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="../../d1/dd1/propagation_8c_source.html#l00036">36</a> of file <a class="el" href="../../d1/dd1/propagation_8c_source.html">propagation.c</a>.</p>
+
+</div>
+</div>
 <a id="af82248ce3757422f342a5fee2fc6a93a" name="af82248ce3757422f342a5fee2fc6a93a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af82248ce3757422f342a5fee2fc6a93a">&#9670;&nbsp;</a></span>ap_ffdist()</h2>
 
@@ -122,7 +166,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>far-field (Fraunhofer) distance of an aperture [m] </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/dd1/propagation_8c_source.html#l00017">17</a> of file <a class="el" href="../../d1/dd1/propagation_8c_source.html">propagation.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/dd1/propagation_8c_source.html#l00016">16</a> of file <a class="el" href="../../d1/dd1/propagation_8c_source.html">propagation.c</a>.</p>
 
 </div>
 </div>

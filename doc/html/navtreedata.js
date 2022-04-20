@@ -28,6 +28,14 @@ var NAVTREE =
     [ "libantenna: Antennas and Propagation Library", "d3/dcc/md__r_e_a_d_m_e.html", [
       [ "Index", "d3/dcc/md__r_e_a_d_m_e.html#autotoc_md1", null ]
     ] ],
+    [ "Data Structures", "annotated.html", [
+      [ "Data Structures", "annotated.html", "annotated_dup" ],
+      [ "Data Structure Index", "classes.html", null ],
+      [ "Data Fields", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
@@ -41,7 +49,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"d0/d41/utility_8c.html"
+"annotated.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
