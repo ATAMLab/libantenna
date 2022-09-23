@@ -13,9 +13,9 @@
  * @return far-field (Fraunhofer) distance of an aperture [m]
  *
  */
-double ap_ffdist(double freq, double D)
+double ant_ffdist(double freq, double D)
 {
-  return AP_MAX(2 * D * D / ap_freq2wavelen(freq), AP_MAX(1.6 * ap_freq2wavelen(freq), 5 * D));
+  return ANT_MAX(2 * D * D / ant_freq2wavelen(freq), ANT_MAX(1.6 * ant_freq2wavelen(freq), 5 * D));
 }
 
 /**
@@ -33,10 +33,10 @@ double ap_ffdist(double freq, double D)
  * @return phi and theta angle pair in degrees [\f$\circ\f$]
  *
  */
-struct ap_thetaphi ap_azel2phitheta(double az, double el)
+struct ant_thetaphi ant_azel2phitheta(double az, double el)
 {
   double theta = acos(cos(az) * cos(el));
   double phi = atan2(tan(el), sin(az));
-  return (struct ap_thetaphi){theta, phi};
+  return (struct ant_thetaphi){theta, phi};
 }
 

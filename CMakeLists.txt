@@ -1,9 +1,12 @@
-cmake_minimum_required(VERSION 3.16.3)
-project(bashlab VERSION 0.1.0)
+cmake_minimum_required(VERSION 3.24.0)
+project(libantenna VERSION 0.1.0)
 
-# if (WIN32)
-#   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
-#   endif (WIN32)
+set(LIBNAME ${CMAKE_PROJECT_NAME})
+
+if (WIN32)
+  add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+endif (WIN32)
+
   
 #Bring the headers, such as Student.h into the project
 include_directories(.)
@@ -15,7 +18,7 @@ file(GLOB SOURCES "src/*.c")
 if(BUILD_SHARED_LIBS)
   if (WIN32)
     add_library(libantenna SHARED ${SOURCES})
-    add_definitions(-DLIBANTENNA_MSBUILD_SHARED)
+    add_definitions(-DMSVC_SHARED)
     include (GenerateExportHeader)
     GENERATE_EXPORT_HEADER(libantenna BASE_NAME libantenna STATIC_DEFINE SHARED_EXPORTS_BUILT_AS_STATIC)
   else()

@@ -17,7 +17,7 @@ int main()
 
   printf("\n=================== frequency <-> wavelength ====================\n");
   for (size_t i = 0; i < Nfreq; i++)
-    printf("%s: %s\n", ap_frequency_hr(freqs[i], buff, BUFF_SIZE), ap_wavelength_hr(ap_freq2wavelen(freqs[i]), buff2, BUFF_SIZE));
+    printf("%s: %s\n", ant_frequency_hr(freqs[i], buff, BUFF_SIZE), ant_wavelength_hr(ant_freq2wavelen(freqs[i]), buff2, BUFF_SIZE));
 
   printf("\n========================= s11 <-> swr ===========================\n");
   double s11[Nfreq] = {-8.0, -10.0, -12.0, -20.0, -30.0};
@@ -25,12 +25,12 @@ int main()
   printf(" s11    swr\n");
   printf("-----  -----\n");
   for (size_t i = 0; i < Nfreq; i++)
-    printf("%5.1f: %.3f\n", s11[i], ap_s11dbtoswr(s11[i]));
+    printf("%5.1f: %.3f\n", s11[i], ant_s11dbtoswr(s11[i]));
   printf("\n");
   printf(" swr    s11\n");
   printf("-----  -----\n");
   for (size_t i = 0; i < Nfreq; i++)
-    printf("%.3f: %5.1f\n", ap_s11dbtoswr(s11[i]), ap_swrtos11db(ap_s11dbtoswr(s11[i])));
+    printf("%.3f: %5.1f\n", ant_s11dbtoswr(s11[i]), ant_swrtos11db(ant_s11dbtoswr(s11[i])));
 
   printf("\n=========================== ffdist =============================\n");
   {
@@ -38,7 +38,7 @@ int main()
     double D = 1;
     printf("  freq       D        far-field\n");
     printf("--------  ------     ----------\n");
-    printf("%s    %.1f        %s\n", ap_frequency_hr(freq, buff, BUFF_SIZE), D, ap_wavelength_hr(ap_ffdist(freq, D), buff2, BUFF_SIZE));
+    printf("%s    %.1f        %s\n", ant_frequency_hr(freq, buff, BUFF_SIZE), D, ant_wavelength_hr(ant_ffdist(freq, D), buff2, BUFF_SIZE));
   }
 
   return 0;

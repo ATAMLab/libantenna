@@ -11,9 +11,9 @@
  * @return wavelength in meters [m]
  * 
  */
-double ap_freq2wavelen(double freq)
+double ant_freq2wavelen(double freq)
 {
-  return AP_CONSTANT_C0 / freq;
+  return ANT_CONSTANT_C0 / freq;
 }
 
 /**
@@ -24,9 +24,9 @@ double ap_freq2wavelen(double freq)
  * @param wavelen wavelength in meters [m]
  * @return frequency in Hertz [Hz] 
  */
-double ap_wavelen2freq(double wavelen)
+double ant_wavelen2freq(double wavelen)
 {
-  return ap_freq2wavelen(wavelen);
+  return ant_freq2wavelen(wavelen);
 }
 
 /**
@@ -37,7 +37,7 @@ double ap_wavelen2freq(double wavelen)
  * @param S11: reflection coefficient in decibel [dB]
  * @return SWR 
  */
-double ap_s11dbtoswr(double s11)
+double ant_s11dbtoswr(double s11)
 {
   return (1 + pow(10.0, s11 / 20)) / (1 - pow(10.0, s11 / 20));
 }
@@ -50,7 +50,7 @@ double ap_s11dbtoswr(double s11)
  * @param SWR: standing wave ratio
  * @return S11 
  */
-double ap_swrtos11db(double swr)
+double ant_swrtos11db(double swr)
 {
     return 20 * log10((swr - 1) / (swr + 1));
 }
