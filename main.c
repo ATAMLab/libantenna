@@ -1,6 +1,6 @@
 
-ANT_API char *ant_wavelength_hr(double wavelength, char *buff, size_t buff_len);
-ANT_API char *ant_frequency_hr(double frequency, char *buff, size_t buff_len);
+// ANT_API char *ant_wavelength_hr(double wavelength, char *buff, size_t buff_len);
+// ANT_API char *ant_frequency_hr(double frequency, char *buff, size_t buff_len);
 
 #include "libantenna.h"
 
@@ -34,4 +34,11 @@ char* ant_frequency_hr(double frequency, char *buff, size_t buff_len)
   else
     snprintf(buff, buff_len - 1, "%.1f Hz", frequency / 1E0);
   return buff;
+}
+
+int main(){
+  double freq = 1E9;
+  printf("%f", ant_freq2wavelen(freq));
+
+  return 0;
 }
