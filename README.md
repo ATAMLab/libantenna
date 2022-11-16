@@ -1,6 +1,24 @@
 # libantenna: Antennas and Propagation Library
 C language toolkit library for fundamental computations related to electormagnetics, antennas and radio (RF) propagation.
 
+## Building
+### MSVC
+``` shell
+SET CMAKE=".."      # set cmake executable path
+RMDIR /Q /S build > NUL 2>&1 
+MKDIR build 
+CD build
+```
+- 32 Bit 
+`%CMAKE% -DBUILD_SHARED_LIBS=ON -T host=x86 -A win32 ..`
+- 64 Bit 
+`%CMAKE% -DBUILD_SHARED_LIBS=ON -T host=x64 -A x64 ..`
+``` shell
+%CMAKE% --build . --config Release
+```
+
+ 
+
 ## Index
 The following functions are implemented in this library:
 
