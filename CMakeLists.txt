@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.24.0)
+cmake_minimum_required(VERSION 3.23.0)
 project(antenna VERSION 0.1.0)
 
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
@@ -34,16 +34,6 @@ else()
   add_library(${LIBNAME} STATIC ${SOURCES}) 
 endif(BUILD_SHARED_LIBS)
 
-if(BUILD_BINARY)
-  if(UNIX)
-    list(APPEND LIBNAME m) 
-  endif(UNIX)
-  add_executable(main main.c)
-  target_link_libraries(main ${LIBNAME})
-  #file(RENAME build/main build/antenna)
-endif(BUILD_BINARY)
-
-
 #Set the location for library installation -- i.e., /usr/lib in this case
 # not really necessary in this example. Use "sudo make install" to apply
 #if (WIN32)
@@ -62,5 +52,4 @@ endif(BUILD_BINARY)
 #  )
 #endif (WIN32)
 
-install(FILES "libantenna.h" DESTINATION "include")
 

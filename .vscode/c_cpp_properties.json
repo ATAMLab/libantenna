@@ -12,10 +12,11 @@
             "configurationProvider": "ms-vscode.cmake-tools"
         },
         {
-          "name": "Win32",
-          "includePath": [
-            "${workspaceFolder}/"
-          ]
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/"
+            ],
+            "configurationProvider": "ms-vscode.cmake-tools"
         }
     ],
     "version": 4
