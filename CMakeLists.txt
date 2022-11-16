@@ -33,23 +33,3 @@ if(BUILD_SHARED_LIBS)
 else()
   add_library(${LIBNAME} STATIC ${SOURCES}) 
 endif(BUILD_SHARED_LIBS)
-
-#Set the location for library installation -- i.e., /usr/lib in this case
-# not really necessary in this example. Use "sudo make install" to apply
-#if (WIN32)
-#  install(TARGETS libantenna
-#  LIBRARY DESTINATION "lib"
-#  ARCHIVE DESTINATION "lib"
-#  RUNTIME DESTINATION "bin"
-#  INCLUDES DESTINATION "include"
-#  )
-#else()
-#  install(TARGETS antenna
-#  LIBRARY DESTINATION "lib"
-#  ARCHIVE DESTINATION "lib"
-#  RUNTIME DESTINATION "bin"
-#  INCLUDES DESTINATION "include"
-#  )
-#endif (WIN32)
-
-
