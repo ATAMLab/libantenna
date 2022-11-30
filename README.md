@@ -2,9 +2,9 @@
 C language toolkit library for fundamental computations related to electormagnetics, antennas and radio (RF) propagation.
 
 ## Building
-### MSVC
+### MSVC on Windows
 ``` shell
-SET CMAKE=".."      # set cmake executable path
+SET CMAKE=".."                 # set cmake executable path
 RMDIR /Q /S build > NUL 2>&1 
 MKDIR build 
 CD build
@@ -15,6 +15,14 @@ CD build
 `%CMAKE% -DBUILD_SHARED_LIBS=ON -T host=x64 -A x64 ..`
 ``` shell
 %CMAKE% --build . --config Release
+```
+### GCC on Linux
+```
+rm -rf build
+mkdir build
+cd build
+cmake .. -DBUILD_SHARED_LIBS=ON
+cmake --build . --config Release
 ```
 
  
