@@ -10,14 +10,7 @@
 
 char* ant_wavelength_hr(double wavelength, char *buff, size_t buff_len)
 {
-  if (wavelength >= 1E3)
-    snprintf(buff, buff_len - 1, "%.1f km", wavelength / 1E3);
-  else if (wavelength >= 1)
-    snprintf(buff, buff_len - 1, "%.1f m", wavelength / 1E0);
-  else if (wavelength >= 1E-2)
-    snprintf(buff, buff_len - 1, "%.1f cm", wavelength * 1E2);
-  else
-    snprintf(buff, buff_len - 1, "%.1f mm", wavelength * 1E3);
+  
   return buff;
 }
 

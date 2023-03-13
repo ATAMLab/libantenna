@@ -5,8 +5,25 @@ project(antenna VERSION 0.1.0)
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 option(ENABLE_TESTS "Build test binaries" ON)
 
+# commons
+if(WIN32)
+  file(TO_CMAKE_PATH "$ENV{LocalAppData}" EXTERNALS_DIR)
+endif(WIN32)
+
+if(UNIX)
+  set(EXTERNALS_DIR "/usr/local") 
+endif(UNIX)
+
+# depenedency
+find_file(LIBCONST phys_const_mks.h ${EXTERNALS_DIR}/include)
+# find_library(LIBCONST libconst PATHS $ENV{LocalAppData})
+if(NOT LIBCONST)
+  message(FATAL_ERROR "libconst library not found")
+endif()
+message(STATUS "[VERB]libconst: ${LIBCONST}")
+
 #include 
-include_directories(".")
+include_directories("." ${EXTERNALS_DIR}/include)
 
 # source
 file(GLOB SOURCES "src/*.c")

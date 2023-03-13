@@ -1,6 +1,9 @@
 # libantenna: Antennas and Propagation Library
 C language toolkit library for fundamental computations related to electormagnetics, antennas and radio (RF) propagation.
 
+## Dependencies
+- [libconst](https://github.com/yigithsyn/libconst): Physical and Mathematical Constants Library
+
 ## Building
 ### MSVC on Windows
 ``` shell

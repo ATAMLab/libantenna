@@ -1,5 +1,7 @@
 #include "antenna.h"
 
+#include "phys_const_mks.h"
+
 #include <math.h>
 
 #define C0 299792458
@@ -32,9 +34,9 @@ double ant_ffdist(double freq, double D)
   return MAX(2*D*D/ant_freq2wavelen(freq),MAX(1.6*ant_freq2wavelen(freq),5*D));
 }
 
-struct ant_thetaphi ant_azel2phitheta(double az, double el)
-{
-  double theta = acos(cos(az)*cos(el));
-  double phi   = atan2(tan(el),sin(az));
-  return (struct ant_thetaphi){theta,phi};
-}
+// struct ant_thetaphi ant_azel2phitheta(double az, double el)
+// {
+//   double theta = acos(cos(az)*cos(el));
+//   double phi   = atan2(tan(el),sin(az));
+//   return (struct ant_thetaphi){theta,phi};
+// }
