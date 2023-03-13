@@ -17,10 +17,7 @@ extern "C" {
     #define ANT_API
 #endif
 
-#define ANT_CONSTANT_C0 299792458
 
-#define ANT_MIN(a, b) (((a) < (b)) ? (a) : (b))
-#define ANT_MAX(a, b) (((a) > (b)) ? (a) : (b))
 
 struct ant_thetaphi
 {
@@ -29,7 +26,6 @@ struct ant_thetaphi
 
 ANT_API double ant_freq2wavelen(double freq);
 ANT_API double ant_wavelen2freq(double wavelen);
-
 
 ANT_API double ant_s11dbtoswr(double s11);
 ANT_API double ant_swrtos11db(double swr);

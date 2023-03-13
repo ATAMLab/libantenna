@@ -1,10 +1,15 @@
-#include "libantenna.h"
+#include "antenna.h"
 
 #include <math.h>
 
+#define C0 299792458
+
+#define MIN(a, b) (((a) < (b)) ? (a) : (b))
+#define MAX(a, b) (((a) > (b)) ? (a) : (b))
+
 double ant_freq2wavelen(double freq)
 {
-  return ANT_CONSTANT_C0/freq;
+  return C0/freq;
 }
 
 double ant_wavelen2freq(double wavelen)
@@ -24,7 +29,7 @@ double ant_swrtos11db(double swr)
 
 double ant_ffdist(double freq, double D)
 {
-  return ANT_MAX(2*D*D/ant_freq2wavelen(freq),ANT_MAX(1.6*ant_freq2wavelen(freq),5*D));
+  return MAX(2*D*D/ant_freq2wavelen(freq),MAX(1.6*ant_freq2wavelen(freq),5*D));
 }
 
 struct ant_thetaphi ant_azel2phitheta(double az, double el)
