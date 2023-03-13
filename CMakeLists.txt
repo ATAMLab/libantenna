@@ -15,17 +15,18 @@ else()
   set(PROJECT_VERSION_PATCH 0)
 endif()
 set(PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
-message(STATUS "[VERB] Project version: ${PROJECT_VERSION}")
+message(STATUS "[VERB] libantenna project version: ${PROJECT_VERSION}")
 
 # option
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 
 # dependency
 set(LIBCONSTS_VER 1.0.1)
-set(LIBCONSTS_SOURCE_DIR "${PROJECT_BINARY_DIR}/libconsts-${LIBCONSTS_VER}")
-file(DOWNLOAD https://github.com/yigithsyn/libconsts/archive/refs/tags/v${LIBCONSTS_VER}.tar.gz "${PROJECT_BINARY_DIR}/libconsts-v${LIBCONSTS_VER}.tar.gz")
-file(ARCHIVE_EXTRACT INPUT "${PROJECT_BINARY_DIR}/libconsts-v${LIBCONSTS_VER}.tar.gz" DESTINATION "${PROJECT_BINARY_DIR}")
-add_subdirectory("${LIBCONSTS_SOURCE_DIR}")
+file(TO_CMAKE_PATH "${PROJECT_BINARY_DIR}" PROJECT_BINARY_DIR)
+set(LIBCONSTS_SOURCE_DIR ${PROJECT_BINARY_DIR}/libconsts-${LIBCONSTS_VER})
+file(DOWNLOAD https://github.com/yigithsyn/libconsts/archive/refs/tags/v${LIBCONSTS_VER}.tar.gz ${PROJECT_BINARY_DIR}/libconsts-v${LIBCONSTS_VER}.tar.gz)
+file(ARCHIVE_EXTRACT INPUT ${PROJECT_BINARY_DIR}/libconsts-v${LIBCONSTS_VER}.tar.gz DESTINATION ${PROJECT_BINARY_DIR})
+add_subdirectory(${LIBCONSTS_SOURCE_DIR})
 
 #include 
 include_directories("." ${LIBCONSTS_SOURCE_DIR})
