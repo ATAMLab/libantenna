@@ -5,6 +5,9 @@ project(antenna VERSION 0.1.0)
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 option(ENABLE_TESTS "Build test binaries" ON)
 
+#include 
+include_directories(".")
+
 # source
 file(GLOB SOURCES "src/*.c")
 file(GLOB INCLUDES "*.h")
