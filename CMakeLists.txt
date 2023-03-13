@@ -1,40 +1,47 @@
 cmake_minimum_required(VERSION 3.22.0)
-project(antenna VERSION 0.1.0)
+project(antenna "C")
+
+# version
+get_filename_component(VERSION_TAG_PATH "version.tag" ABSOLUTE)
+if(EXISTS ${VERSION_TAG_PATH})
+  file(READ version.tag VERSION_TAG OFFSET 1)
+  string(REPLACE "." ";" VERSION_LIST ${VERSION_TAG})
+  list(GET VERSION_LIST 0 PROJECT_VERSION_MAJOR)
+  list(GET VERSION_LIST 1 PROJECT_VERSION_MINOR)
+  list(GET VERSION_LIST 2 PROJECT_VERSION_PATCH)
+else()
+  set(PROJECT_VERSION_MAJOR 0)
+  set(PROJECT_VERSION_MINOR 0)
+  set(PROJECT_VERSION_PATCH 0)
+endif()
+set(PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
+message(STATUS "[VERB] Project version: ${PROJECT_VERSION}")
 
 # option
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
-option(ENABLE_TESTS "Build test binaries" ON)
 
-# commons
-if(WIN32)
-  file(TO_CMAKE_PATH "$ENV{LocalAppData}" EXTERNALS_DIR)
-endif(WIN32)
-
-if(UNIX)
-  set(EXTERNALS_DIR "/usr/local") 
-endif(UNIX)
-
-# depenedency
-find_file(LIBCONST phys_const_mks.h ${EXTERNALS_DIR}/include)
-# find_library(LIBCONST libconst PATHS $ENV{LocalAppData})
-if(NOT LIBCONST)
-  message(FATAL_ERROR "libconst library not found")
-endif()
-message(STATUS "[VERB]libconst: ${LIBCONST}")
+# dependency
+set(CMAKE_PREFIX_PATH $ENV{LocalAppData})
+message(STATUS "[VERB] CMake prefix path: ${CMAKE_PREFIX_PATH}")
+find_package(consts CONFIG REQUIRED CONFIGS constsConfigVersion.cmake)
 
 #include 
-include_directories("." ${EXTERNALS_DIR}/include)
+if(UNIX OR MSYS OR MINGW)
+  include_directories(".")
+elseif(WIN32)
+  include_directories("." $ENV{LocalAppData}/include)
+endif()
 
 # source
 file(GLOB SOURCES "src/*.c")
 file(GLOB INCLUDES "*.h")
 
 # library
-if(MSVC)
-  set(LIBNAME lib${CMAKE_PROJECT_NAME})
-else()
+if(UNIX OR MSYS OR MINGW)
   set(LIBNAME ${CMAKE_PROJECT_NAME})
-endif(MSVC)
+elseif(WIN32)
+  set(LIBNAME lib${CMAKE_PROJECT_NAME})
+endif()
 
 # build
 if(BUILD_SHARED_LIBS)
@@ -52,18 +59,18 @@ else()
 endif(BUILD_SHARED_LIBS)
 
 # install
-install(TARGETS ${LIBNAME} CONFIGURATIONS Release)
+include(GNUInstallDirs)
+if(UNIX OR MSYS OR MINGW)
+  set(PACKAGE_INSTALL_CMAKEDIR ${CMAKE_INSTALL_LIBDIR}/cmake/${CMAKE_PROJECT_NAME})
+elseif(WIN32)
+  set(PACKAGE_INSTALL_CMAKEDIR "cmake")
+endif()
+
+install(TARGETS ${LIBNAME} EXPORT ${CMAKE_PROJECT_NAME}Config)
 install(FILES ${INCLUDES} DESTINATION "include")
 
-# CTest
-# if(ENABLE_TESTS)
-#   # testing binary
-#   add_executable(test1 test/test1.c)
-#   target_link_libraries(test1 PRIVATE "${LIBNAME}")
+install(EXPORT ${CMAKE_PROJECT_NAME}Config NAMESPACE ${CMAKE_PROJECT_NAME}:: DESTINATION ${PACKAGE_INSTALL_CMAKEDIR})
 
-#   # enable testing functionality
-#   enable_testing()
-
-#   # define tests
-#   add_test(NAME test1  COMMAND $<TARGET_FILE:test1>)
-# endif(ENABLE_TESTS)
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file("${PROJECT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake" VERSION ${PROJECT_VERSION} COMPATIBILITY SameMajorVersion)
+install(FILES "${PROJECT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake" DESTINATION ${PACKAGE_INSTALL_CMAKEDIR})
