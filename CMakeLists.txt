@@ -21,20 +21,18 @@ message(STATUS "[VERB] Project version: ${PROJECT_VERSION}")
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 
 # dependency
-set(CMAKE_PREFIX_PATH $ENV{LocalAppData})
-message(STATUS "[VERB] CMake prefix path: ${CMAKE_PREFIX_PATH}")
-find_package(consts CONFIG REQUIRED CONFIGS constsConfigVersion.cmake)
+set(LIBCONSTS_VER 1.0.1)
+set(LIBCONSTS_INCLUDE_DIR ${PROJECT_BINARY_DIR}/libconsts-${LIBCONSTS_VER})
+set(LIBCONSTS_SOURCE_DIR ${PROJECT_BINARY_DIR}/libconsts-${LIBCONSTS_VER}/src)
+file(DOWNLOAD https://github.com/yigithsyn/libconsts/archive/refs/tags/v${LIBCONSTS_VER}.tar.gz libconsts-v${LIBCONSTS_VER}.tar.gz)
+file(ARCHIVE_EXTRACT INPUT libconsts-v${LIBCONSTS_VER}.tar.gz)
 
 #include 
-if(UNIX OR MSYS OR MINGW)
-  include_directories(".")
-elseif(WIN32)
-  include_directories("." $ENV{LocalAppData}/include)
-endif()
+include_directories("." ${LIBCONSTS_INCLUDE_DIR})
 
 # source
-file(GLOB SOURCES "src/*.c")
-file(GLOB INCLUDES "*.h")
+file(GLOB SOURCES "src/*.c" ${LIBCONSTS_SOURCE_DIR}/*.c)
+file(GLOB INCLUDES antenna.h)
 
 # library
 if(UNIX OR MSYS OR MINGW)
