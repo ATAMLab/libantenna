@@ -24,7 +24,7 @@ option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 set(LIBCONSTS_VER 1.0.1)
 set(LIBCONSTS_SOURCE_DIR "${PROJECT_BINARY_DIR}/libconsts-${LIBCONSTS_VER}")
 file(DOWNLOAD https://github.com/yigithsyn/libconsts/archive/refs/tags/v${LIBCONSTS_VER}.tar.gz "${PROJECT_BINARY_DIR}/libconsts-v${LIBCONSTS_VER}.tar.gz")
-file(ARCHIVE_EXTRACT INPUT "${PROJECT_BINARY_DIR}/libconsts-v${LIBCONSTS_VER}.tar.gz DESTINATION" "${PROJECT_BINARY_DIR}")
+file(ARCHIVE_EXTRACT INPUT "${PROJECT_BINARY_DIR}/libconsts-v${LIBCONSTS_VER}.tar.gz" DESTINATION "${PROJECT_BINARY_DIR}")
 add_subdirectory("${LIBCONSTS_SOURCE_DIR}")
 
 #include 
