@@ -9,6 +9,31 @@
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
 
+unsigned short int ant_ver_major()
+{
+#ifdef PROJECT_VERSION_MAJOR
+  return PROJECT_VERSION_MAJOR;
+#else
+  return 0;
+#endif
+}
+unsigned short int ant_ver_minor()
+{
+#ifdef PROJECT_VERSION_MINOR
+  return PROJECT_VERSION_MINOR;
+#else
+  return 0;
+#endif
+}
+unsigned short int ant_ver_patch()
+{
+#ifdef PROJECT_VERSION_PATCH
+  return PROJECT_VERSION_PATCH;
+#else
+  return 0;
+#endif
+}
+
 double ant_freq2wavelen(double freq)
 {
   return C0/freq;

@@ -1,6 +1,15 @@
 cmake_minimum_required(VERSION 3.23.22)
 project(antenna "C")
 
+# dependency
+if(UNIX OR MSYS OR MINGW)
+  set(CMAKE_PREFIX_PATH "/usr/local")
+elseif(WIN32)
+  set(CMAKE_PREFIX_PATH $ENV{LocalAppData})
+endif()
+message(VERBOSE "[${CMAKE_PROJECT_NAME}] CMake prefix path: ${CMAKE_PREFIX_PATH}")
+find_package(consts 1.0.1 CONFIG REQUIRED)
+
 # version
 get_filename_component(VERSION_TAG_PATH "version.tag" ABSOLUTE)
 if(EXISTS ${VERSION_TAG_PATH})
@@ -15,25 +24,25 @@ else()
   set(PROJECT_VERSION_PATCH 0)
 endif()
 set(PROJECT_VERSION ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}.${PROJECT_VERSION_PATCH})
-message(STATUS "[VERB] libantenna project version: ${PROJECT_VERSION}")
+message(VERBOSE "[${CMAKE_PROJECT_NAME}] Project version: ${PROJECT_VERSION}")
 
 # option
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
-
-# dependency
-set(LIBCONSTS_VER 1.0.1)
-file(TO_CMAKE_PATH "${PROJECT_BINARY_DIR}" PROJECT_BINARY_DIR)
-set(LIBCONSTS_SOURCE_DIR ${PROJECT_BINARY_DIR}/libconsts-${LIBCONSTS_VER})
-file(DOWNLOAD https://github.com/yigithsyn/libconsts/archive/refs/tags/v${LIBCONSTS_VER}.tar.gz ${PROJECT_BINARY_DIR}/libconsts-v${LIBCONSTS_VER}.tar.gz)
-file(ARCHIVE_EXTRACT INPUT ${PROJECT_BINARY_DIR}/libconsts-v${LIBCONSTS_VER}.tar.gz DESTINATION ${PROJECT_BINARY_DIR})
-add_subdirectory(${LIBCONSTS_SOURCE_DIR})
+option(ENABLE_TESTS "Build test binaries" ON)
 
 #include 
-include_directories("." ${LIBCONSTS_SOURCE_DIR})
+if(UNIX OR MSYS OR MINGW)
+  include_directories(".")
+elseif(WIN32)
+  include_directories("." $ENV{LocalAppData}/include)
+endif()
 
 # source
 file(GLOB SOURCES "src/*.c")
-file(GLOB INCLUDES antenna.h)
+file(GLOB INCLUDES "./*.h")
+message(VERBOSE "[${CMAKE_PROJECT_NAME}] List of source files: ${SOURCES}")
+message(VERBOSE "[${CMAKE_PROJECT_NAME}] List of include files: ${INCLUDES}")
+
 
 # library
 if(UNIX OR MSYS OR MINGW)
@@ -56,6 +65,22 @@ if(BUILD_SHARED_LIBS)
 else()
   add_library(${LIBNAME} STATIC ${SOURCES}) 
 endif(BUILD_SHARED_LIBS)
+target_compile_definitions(${LIBNAME} PUBLIC PROJECT_VERSION_MAJOR=${PROJECT_VERSION_MAJOR})
+target_compile_definitions(${LIBNAME} PUBLIC PROJECT_VERSION_MINOR=${PROJECT_VERSION_MINOR})
+target_compile_definitions(${LIBNAME} PUBLIC PROJECT_VERSION_PATCH=${PROJECT_VERSION_PATCH})
+
+# test
+if(ENABLE_TESTS)
+  # testing binary
+  add_executable(test1 test/test1.c)
+  target_link_libraries(test1 PRIVATE "${LIBNAME}")
+
+  # enable testing functionality
+  enable_testing()
+
+  # define tests
+  add_test(NAME test1  COMMAND $<TARGET_FILE:test1>)
+endif(ENABLE_TESTS)
 
 # install
 include(GNUInstallDirs)

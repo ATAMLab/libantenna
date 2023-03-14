@@ -17,12 +17,11 @@ extern "C" {
     #define ANT_API
 #endif
 
+ANT_API unsigned short int ant_ver_major();
+ANT_API unsigned short int ant_ver_minor();
+ANT_API unsigned short int ant_ver_patch();
 
 
-struct ant_thetaphi
-{
-  double theta, phi;
-};
 
 ANT_API double ant_freq2wavelen(double freq);
 ANT_API double ant_wavelen2freq(double wavelen);
@@ -31,6 +30,10 @@ ANT_API double ant_s11dbtoswr(double s11);
 ANT_API double ant_swrtos11db(double swr);
 
 ANT_API double ant_ffdist(double freq, double D);
+// struct ant_thetaphi
+// {
+//   double theta, phi;
+// };
 // ANT_API struct ant_thetaphi ant_azel2phitheta(double az, double el);
 
 #ifdef __cplusplus
