@@ -54,7 +54,7 @@ double ant_swrtos11db(double swr)
   return 20*log10((swr-1)/(swr+1));
 }
 
-double ant_ffdist(double freq, double D)
+double ant_ffdist(double D, double freq)
 {
   return MAX(2*D*D/ant_freq2wavelen(freq),MAX(1.6*ant_freq2wavelen(freq),5*D));
 }
