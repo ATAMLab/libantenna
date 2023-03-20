@@ -8,7 +8,7 @@ elseif(WIN32)
   set(CMAKE_PREFIX_PATH $ENV{LocalAppData})
 endif()
 message(VERBOSE "[${CMAKE_PROJECT_NAME}] CMake prefix path: ${CMAKE_PREFIX_PATH}")
-find_package(consts 1.0.1 CONFIG REQUIRED)
+find_package(consts 1 CONFIG REQUIRED)
 
 # version
 get_filename_component(VERSION_TAG_PATH "version.tag" ABSOLUTE)
