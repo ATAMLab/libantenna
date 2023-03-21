@@ -30,11 +30,6 @@ ANT_API double ant_s11dbtoswr(double s11);
 ANT_API double ant_swrtos11db(double swr);
 
 ANT_API double ant_ffdist(double D, double freq);
-// struct ant_thetaphi
-// {
-//   double theta, phi;
-// };
-// ANT_API struct ant_thetaphi ant_azel2phitheta(double az, double el);
 
 #ifdef __cplusplus
 }

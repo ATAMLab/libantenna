@@ -1,10 +1,8 @@
 #include "antenna.h"
 
-#include "consts_phys_mks.h"
-
 #include <math.h>
 
-#define C0 299792458
+#define CONSTS_PHYS_MKS_SPEED_OF_LIGHT	          2.997924580000e+08
 
 #define MIN(a, b) (((a) < (b)) ? (a) : (b))
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
@@ -36,7 +34,7 @@ unsigned short int ant_ver_patch()
 
 double ant_freq2wavelen(double freq)
 {
-  return C0/freq;
+  return CONSTS_PHYS_MKS_SPEED_OF_LIGHT/freq;
 }
 
 double ant_wavelen2freq(double wavelen)
@@ -58,10 +56,3 @@ double ant_ffdist(double D, double freq)
 {
   return MAX(2*D*D/ant_freq2wavelen(freq),MAX(1.6*ant_freq2wavelen(freq),5*D));
 }
-
-// struct ant_thetaphi ant_azel2phitheta(double az, double el)
-// {
-//   double theta = acos(cos(az)*cos(el));
-//   double phi   = atan2(tan(el),sin(az));
-//   return (struct ant_thetaphi){theta,phi};
-// }
