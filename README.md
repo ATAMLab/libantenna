@@ -5,6 +5,7 @@ C language toolkit library for fundamental computations related to electormagnet
 ## Building
 
 ```shell
+mkdir build
 cd build
 cmake .. 
 cmake --build . --config Release
