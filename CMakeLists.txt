@@ -68,18 +68,6 @@ target_compile_definitions(${LIBNAME} PUBLIC PROJECT_VERSION_MAJOR=${PROJECT_VER
 target_compile_definitions(${LIBNAME} PUBLIC PROJECT_VERSION_MINOR=${PROJECT_VERSION_MINOR})
 target_compile_definitions(${LIBNAME} PUBLIC PROJECT_VERSION_PATCH=${PROJECT_VERSION_PATCH})
 
-# test
-if(ENABLE_TESTS)
-  # testing binary
-  add_executable(test1 test/test1.c)
-  target_link_libraries(test1 PRIVATE "${LIBNAME}")
-
-  # enable testing functionality
-  enable_testing()
-
-  # define tests
-  add_test(NAME test1  COMMAND $<TARGET_FILE:test1>)
-endif(ENABLE_TESTS)
 
 # install
 include(GNUInstallDirs)
@@ -97,3 +85,18 @@ install(EXPORT ${CMAKE_PROJECT_NAME}Config NAMESPACE ${CMAKE_PROJECT_NAME}:: DES
 include(CMakePackageConfigHelpers)
 write_basic_package_version_file("${PROJECT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake" VERSION ${PROJECT_VERSION} COMPATIBILITY SameMajorVersion)
 install(FILES "${PROJECT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake" DESTINATION ${PACKAGE_INSTALL_CMAKEDIR})
+
+
+# test
+if(ENABLE_TESTS)
+  # testing binary
+  add_executable(test1 test/test1.c)
+  target_link_libraries(test1 PRIVATE "${LIBNAME}")
+
+  # enable testing functionality
+  enable_testing()
+
+  # define tests
+  add_test(NAME test1  COMMAND $<TARGET_FILE:test1>)
+endif(ENABLE_TESTS)
+

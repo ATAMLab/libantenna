@@ -26,10 +26,19 @@ ANT_API unsigned short int ant_ver_patch();
 ANT_API double ant_freq2wavelen(double freq);
 ANT_API double ant_wavelen2freq(double wavelen);
 
-ANT_API double ant_s11dbtoswr(double s11);
-ANT_API double ant_swrtos11db(double swr);
+ANT_API double ant_gamma2swr(double s11);
+ANT_API double ant_swr2gamma(double swr);
 
 ANT_API double ant_ffdist(double D, double freq);
+ANT_API double ant_nfdist(double D, double freq);
+
+ANT_API double ant_meas_nf_sepdist(double freq);
+ANT_API size_t ant_meas_nf_pnf_sspace(double freq);
+ANT_API size_t ant_meas_nf_pnf_scount(double freq, double L);
+ANT_API double ant_meas_nf_pnf_slength(double freq, double L);
+
+
+
 
 #ifdef __cplusplus
 }
