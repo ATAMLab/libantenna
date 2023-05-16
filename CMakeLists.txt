@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.23.22)
+cmake_minimum_required(VERSION 3.22)
 project(antenna "C")
 
 # dependency
@@ -42,6 +42,12 @@ file(GLOB INCLUDES "./*.h")
 message(VERBOSE "[${CMAKE_PROJECT_NAME}] List of source files: ${SOURCES}")
 message(VERBOSE "[${CMAKE_PROJECT_NAME}] List of include files: ${INCLUDES}")
 
+# library dependencies
+if(UNIX OR MSYS OR MINGW)
+  set(DEPLIBS m)
+elseif(WIN32)
+  set(DEPLIBS)
+endif()
 
 # library
 if(UNIX OR MSYS OR MINGW)
@@ -68,7 +74,6 @@ target_compile_definitions(${LIBNAME} PUBLIC PROJECT_VERSION_MAJOR=${PROJECT_VER
 target_compile_definitions(${LIBNAME} PUBLIC PROJECT_VERSION_MINOR=${PROJECT_VERSION_MINOR})
 target_compile_definitions(${LIBNAME} PUBLIC PROJECT_VERSION_PATCH=${PROJECT_VERSION_PATCH})
 
-
 # install
 include(GNUInstallDirs)
 if(UNIX OR MSYS OR MINGW)
@@ -86,12 +91,11 @@ include(CMakePackageConfigHelpers)
 write_basic_package_version_file("${PROJECT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake" VERSION ${PROJECT_VERSION} COMPATIBILITY SameMajorVersion)
 install(FILES "${PROJECT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake" DESTINATION ${PACKAGE_INSTALL_CMAKEDIR})
 
-
 # test
 if(ENABLE_TESTS)
   # testing binary
   add_executable(test1 test/test1.c)
-  target_link_libraries(test1 PRIVATE "${LIBNAME}")
+  target_link_libraries(test1 PRIVATE "${LIBNAME}" ${DEPLIBS})
 
   # enable testing functionality
   enable_testing()
