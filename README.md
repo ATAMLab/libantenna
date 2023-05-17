@@ -3,7 +3,7 @@
 C language toolkit library for fundamental computations related to electormagnetics, antennas and radio (RF) propagation.
 
 ## Dependencies for command line program
-- Argtable2
+- Argtable2 `sudo apt install libargtable2-dev`
 
 ## Building
 
