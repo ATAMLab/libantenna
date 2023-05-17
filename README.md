@@ -2,6 +2,9 @@
 
 C language toolkit library for fundamental computations related to electormagnetics, antennas and radio (RF) propagation.
 
+## Dependencies for command line program
+- Argtable2
+
 ## Building
 
 ```shell

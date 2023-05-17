@@ -45,6 +45,10 @@ ANT_API double ant_ffdist(double D, double freq);
  */
 ANT_API double ant_nfdist(double D, double freq);
 
+/**
+ * Antenna gain transfer method impedance mismatch
+*/
+
 ANT_API double ant_meas_nf_sepdist(double freq);
 ANT_API size_t ant_meas_nf_pnf_sspace(double freq);
 ANT_API size_t ant_meas_nf_pnf_scount(double freq, double L);

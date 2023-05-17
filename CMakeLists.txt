@@ -37,7 +37,7 @@ elseif(WIN32)
 endif()
 
 # source
-file(GLOB SOURCES "src/*.c")
+file(GLOB SOURCES "./*.c")
 file(GLOB INCLUDES "./*.h")
 message(VERBOSE "[${CMAKE_PROJECT_NAME}] List of source files: ${SOURCES}")
 message(VERBOSE "[${CMAKE_PROJECT_NAME}] List of include files: ${INCLUDES}")
@@ -104,3 +104,6 @@ if(ENABLE_TESTS)
   add_test(NAME test1  COMMAND $<TARGET_FILE:test1>)
 endif(ENABLE_TESTS)
 
+# command line
+add_executable(anten main.c)
+target_link_libraries(anten PUBLIC "${LIBNAME}" ${DEPLIBS} argtable2)
