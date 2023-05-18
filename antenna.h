@@ -46,8 +46,22 @@ ANT_API double ant_ffdist(double D, double freq);
 ANT_API double ant_nfdist(double D, double freq);
 
 /**
- * Antenna gain transfer method impedance mismatch
+ * Antenna gain transfer method impedance mismatch correction factor  
+ * IEEE Std149-2021 Page 126, Eq.93
+ * @param gamma_l reflection coefficient of antenna in dB
+ * @param gamma_s reflection coefficient of gain reference antenna in dB
+ * @return correction factor in dB to be substracted from initial one
 */
+ANT_API double ant_gtm_mismatchfactor(double gamma_l, double gamma_s);
+
+/**
+ * @brief 
+ * 
+ * @param gamma_l 
+ * @param gamma_s 
+ * @return ANT_API 
+ */
+ANT_API double ant_gtm_mismatchfactor2(double gamma_l, double gamma_s);
 
 ANT_API double ant_meas_nf_sepdist(double freq);
 ANT_API size_t ant_meas_nf_pnf_sspace(double freq);
